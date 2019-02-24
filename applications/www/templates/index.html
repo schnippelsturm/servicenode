@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta lang="de.DE"/>
+        <link rel="stylesheet" type="text/css" media="screen"  href="styles/mainstyle.css"/>
+        <style type="text/css" title="currentStyle" media="screen">
+            @import "/styles/mainstyle.css";
+        </style>
+        <script type="text/javascript">
+            function loadXMLDoc() {
+                var xmlhttp;
+
+                if (window.XMLHttpRequest) {
+                    // code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                } else {
+                    // code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+
+                xmlhttp.onreadystatechange = function() {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        document.getElementById("Seite").innerHTML = xmlhttp.responseText;
+                    }
+                }
+
+                xmlhttp.open("GET", "info.php", true);
+                xmlhttp.send();
+            }
+        </script>
+        <title>ServiceNode<!--pagetitle---></title>
+    </head>
+    <body><h1>ServiceNode</h1>   
+        <div>&nbsp;</div>
+        <div id="tab"> 
+            <div id="row">
+                <div id="left"> 
+                    <ul id="nav">
+                        <li id="intro"><a href="#" id="current">Introduction</a></li> 
+                        <li id="doumentation"><a href="javascript:loadXMLDoc();">Documentation</a></li>
+                        <li id="news"><a href="#">News</a></li>
+                        <li><a href="#">Download</a></li>
+                        <li><a href="index.php">Impressum</a></li>                  
+                    </ul>
+                    <br/>
+                    <br/>
+                </div>
+                <div id="container">
+                    <div><h2><!--content.title--></h2></div>
+                    <div id="Seite"><!--content.page--><br/></div>
+                </div>
+                <div id="right">rechts</div>
+            </div>
+            <!--div id="row">
+                <div id="bottom" >impressum</div>
+            </div-->    
+        </div> 
+    </body>
+</html>
